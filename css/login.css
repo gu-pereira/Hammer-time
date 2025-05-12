@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #0f4ca6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .container {
+    display: flex;
+    
+    height: 400px;
+    width: 800px;
+    border-radius: 40px;
+    overflow: hidden;
+  }
+  
+  .left, .right {
+  
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .left {
+    background-color: #ffffff;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    padding: 50px;
+    padding-top: 90px;
+    width: 50%;
+  }
+  
+  .left h1 {
+    color: #4d68c4;
+    font-size: 38px;
+    margin-bottom: 14px;
+    font-family: 'Inter';
+    font-weight: 900;
+  }
+  
+  .left p {
+    color: #4d68c4;
+    margin-bottom: 20px;
+    font-family: Arial;
+    font-size: 20px;
+  }
+  
+  .left button {
+    background-color: #e1aa3e;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    color: #000;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Inter';
+    width: 100%;
+  }
+  
+  .right {
+    background-color: #4d68c4;
+    color: white;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    width: 50%;
+  }
+  
+  .right h2 {
+    color: #e1aa3e;
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-family: 'Inter';
+    font-weight: 700;
+  }
+  
+  .right input {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    width: 100%;
+  }
+  
+  .right button {
+    background-color: #d99f35;
+    border: none;
+    padding: 12px;
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Inter'
+  }
+
+  .right a {
+    margin-top: 5px;
+    color: #d99f35;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .right a:hover {
+    text-decoration: underline;
+  }
+  
+  ::placeholder {
+    color: #ccc;
+  }
+  
