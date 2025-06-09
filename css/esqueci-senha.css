@@ -4,6 +4,10 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
   }
+
+  p {
+    font-family: Arial;
+  }
   
   body {
     background-color: #0f4ca6;
@@ -41,7 +45,7 @@
     border: none;
     outline: none;
     margin-bottom: 20px;
-    background-color: #e6e6e6;
+    background-color: #f6f6f6;
     font-size: 16px;
   }
 
@@ -51,8 +55,10 @@
     padding: 12px 24px;
     border-radius: 50px;
     color: #000;
-    font-weight: bold;
+    font-weight: 500;
     cursor: pointer;
+    width: 100%;
+    font-family: Arial;
   }
 
   .btn:hover {
@@ -60,13 +66,13 @@
   }
   
 .btn a {
-    color: #000;
+    color: #000000;
     text-decoration: none;
 }
   
   .info {
-    margin-top: 5px;
-    color: #ddd;
+    margin-top: 10px;
+    color: #f3f3f3;
     font-size: 13px;
     font-style: italic;
   }
