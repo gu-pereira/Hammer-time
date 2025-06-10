@@ -27,4 +27,6 @@ document.querySelector(".sidebar-toggler").addEventListener("click", () => {
     
     // Toggle collapsed class on sidebar
     document.querySelector(".sidebar").classList.toggle("collapsed");
+    document.querySelector(".header-cadastro").classList.toggle("collapsed");
+    document.querySelector(".main").classList.toggle("collapsed");
 })
