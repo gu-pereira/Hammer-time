@@ -1,5 +1,6 @@
 /* Google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Doppio+One&display=swap');
 
 * {
     margin: 0;
@@ -10,8 +11,9 @@
 
 body {
     min-height: 100vh;
-    
 }
+
+/* SideBar */
 
 .header {
     width: 100%;
@@ -203,11 +205,117 @@ body {
 
 .sidebar.collapsed .dropdown .nav-item .dropdown-title {
     display: block;
-<<<<<<< HEAD
+}
+
+/* Fornecedores */
+.header-cadastro {
+    width: calc(100% - 260px);
+    height: 62px;
+    background-color: #efa109;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    left: 260px;
+    transition: all 0.4s ease;
+}
+
+.header-cadastro.collapsed {
+    width: calc(100% - 85px);
+    left: 85px;
+    justify-content: center;
+}
+
+.header-escrita {
+    font-size: 30px;
+    font-family: 'Doppio One';
 }
 
 .main {
-    background-color: chartreuse;
-=======
->>>>>>> 61c840ff8249de0d2e1e45614b7a49ed8c4ef8ed
+    background-color: #c0c0c0;
+    height: calc(100vh - 62px);
+    width: calc(100% - 260px);
+    padding: 35px;
+    margin-left: 260px;
+    margin-top: 62px;
+    transition: 0.4s ease;
+}
+
+.main.collapsed {
+    width: calc(100% - 85px);
+    margin-left: 85px;
+}
+
+.tabela {
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: 16px;
+    padding: 0 20px 20px;
+}
+
+.subtitulos {
+    font-family: 'Doppio One';
+
+}
+
+form {
+  padding: 20px 0;
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 20px;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 150px;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #dedede;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn.green {
+  background-color: #1b9448;
+}
+
+.btn.red {
+  background-color: #b72025;
 }
