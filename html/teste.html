@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <label>Telefone:</label>
+  <input type="text" name="tel" maxlength="15" OnKeyPress="formatar('###.####.###-##',this)">
+  <script>  
+  function formatar(mascara, documento) {
+    let i = documento.value.length;
+    let saida = '#';
+    let texto = mascara.substring(i);
+    while (texto.substring(0, 1) != saida && texto.length ) {
+      documento.value += texto.substring(0, 1);
+      i++;
+      texto = mascara.substring(i);
+    }
+  }
+</script>
+<h2>hoje</h2>
+</body>
+
+</html>

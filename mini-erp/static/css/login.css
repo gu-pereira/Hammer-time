@@ -1,0 +1,19 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.card {
+    border-bottom: none;
+    /* Remove borda inferior (cado exista) */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra suave opcional */
+}
