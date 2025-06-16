@@ -12,9 +12,8 @@
 <body>
     <header class="header">
         <a href="#" class="nav-link">
-                        <span class="material-symbols-outlined">home</span>
-                        <span class="material-symbols-outlined">account_circle</span>
-                    </a>
+            <span class="material-symbols-outlined perfil">account_circle</span>
+        </a>
     </header>
     <aside class="sidebar">
         <!-- Sidebar Header -->
@@ -150,57 +149,53 @@
     <script src="../js/sidebar.js"></script>
 
     <!-- Cadastro Fornecedores -->
-    <header class="header-cadastro">
-        <h1 class="header-escrita">CADASTRO DE FORNECEDORES</h1>
-    </header>
 
     <div class="main">
+        <div class="header-cadastro">
+            <h1 class="header-escrita">CADASTRO DE FORNECEDORES</h1>
+        </div>
         <div class="tabela">
             <form class="form">
-      <fieldset>
-        <legend>DADOS</legend>
-        <div class="row">
-          <label>Nome Fantasia:<input type="text"></label>
-          <label>Razão Social:<input type="text"></label>
-        </div>
-        <div class="row">
-          <label>CPF/CNPJ:<input type="text"></label>
-          <label>IE:<input type="text"></label>
-        </div>
-      </fieldset>
+        <fieldset>
+            <legend>DADOS</legend>
+                <div class="row">
+                    <label>Nome Fantasia:<input type="text"></label>
+                    <label>Razão Social:<input type="text"></label>
+                </div>
+                <div class="row">
+                    <label>CPF/CNPJ:<input type="text"></label>
+                    <label>IE:<input type="text"></label>
+                </div>
+        </fieldset>
 
-      <fieldset>
-        <legend>ENDEREÇO</legend>
-        <div class="row">
-          <label class="full">Logradouro:<input type="text"></label>
-          <label>Número:<input type="text"></label>
-        </div>
-        <div class="row">
-          <label>CEP:<input type="text"></label>
-          <label>Cidade:
-            <select><option>Selecione</option></select>
-          </label>
-          <label>UF:
-            <select><option>Selecione</option></select>
-          </label>
-          <label>Complemento:<input type="text"></label>
-        </div>
-      </fieldset>
+        <fieldset>
+            <legend>ENDEREÇO</legend>
+                <div class="row">
+                    <label class="full">Logradouro:<input type="text"></label>
+                    <label>Número:<input type="text"></label>
+                </div>
+                <div class="row">
+                    <label>CEP:<input type="text"></label>
+                    <label>Cidade:<input type="text"></label>
+                    <label>UF:<input type="text"></label>
+                    <label>Complemento:<input type="text"></label>
+                </div>
+        </fieldset>
 
-      <fieldset>
-        <legend>CONTATO</legend>
-        <div class="row">
-          <label>Telefone:<input type="text"></label>
-          <label>Celular:<input type="text"></label>
-          <label class="email">E-mail:<input type="email"></label>
-        </div>
-      </fieldset>
+        <fieldset>
+            <legend>CONTATO</legend>
+            <div class="row">
+                <label>Telefone:<input type="text"></label>
+                <label>Celular:<input type="text"></label>
+                <label class="email">E-mail:<input type="email"></label>
+            </div>
+        </fieldset>
 
       <div class="buttons">
         <button type="submit" class="btn green">EFETIVAR CADASTRO</button>
         <button type="reset" class="btn red">LIMPAR DADOS</button>
       </div>
-    </form>
+        </form>
         </div>
     </div>
 </body>

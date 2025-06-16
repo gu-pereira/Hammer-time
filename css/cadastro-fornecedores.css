@@ -19,6 +19,18 @@ body {
     width: 100%;
     height: 62px;
     background-color: #0c4ea3;
+    width: calc(100% - 260px);
+    display: flex;
+    position: fixed;
+    left: 260px;
+    transition: all 0.4s ease;
+    align-items: center;
+    justify-content: end;
+}
+
+.header.collapsed{
+    width: calc(100% - 85px);
+    left: 85px;
 }
 
 .sidebar {
@@ -208,36 +220,30 @@ body {
 }
 
 /* Fornecedores */
+
+
+
 .header-cadastro {
-    width: calc(100% - 260px);
     height: 62px;
     background-color: #efa109;
+    margin: 27px -35px 0 -35px;
+    margin-bottom: 60px;
     justify-content: center;
     align-items: center;
     display: flex;
-    position: absolute;
-    left: 260px;
-    transition: all 0.4s ease;
-}
-
-.header-cadastro.collapsed {
-    width: calc(100% - 85px);
-    left: 85px;
-    justify-content: center;
 }
 
 .header-escrita {
     font-size: 30px;
     font-family: 'Doppio One';
+    color: black;
 }
 
 .main {
     background-color: #c0c0c0;
-    height: calc(100vh - 62px);
     width: calc(100% - 260px);
     padding: 35px;
     margin-left: 260px;
-    margin-top: 62px;
     transition: 0.4s ease;
 }
 
@@ -298,8 +304,10 @@ input {
 
 .buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 20px;
+  margin-bottom: -20px;
+  gap: 50px;
 }
 
 .btn {
@@ -310,6 +318,8 @@ input {
   color: #fff;
   cursor: pointer;
   font-size: 14px;
+  font-family: 'Poppins';
+  width: 190px;
 }
 
 .btn.green {
@@ -318,4 +328,10 @@ input {
 
 .btn.red {
   background-color: #b72025;
+}
+
+.material-symbols-outlined.perfil {
+    color: #fff;
+    font-size: 40px;
+    margin-right: 10px;
 }
