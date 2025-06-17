@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/lux/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <title>{% block title %}ERP{% endblock %}</title>
+    <title>{% block title %}Hammer-Time{% endblock %}</title>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
     <!-- Navbar -->
      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">ERP Sistema</a>
+            <a class="navbar-brand" href="#">Hammer-Time</a>
             <button class="btn ms-auto d-lg-none" id="sidebarToggle">☰ Menu</button>
             <button class="btn d-none d-lg-inline-block" id="sidebarMinimize">
                 <i class="bi bi-chevron-double-left text-white"></i>
@@ -38,7 +38,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('index') }}">
                                 <i class="bi bi-house-door"></i>
-                                <span class="menu-text">Início</span>
+                                <span class="menu-text">Home</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -48,21 +48,33 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a  class="nav-link" href="{{ url_for('pedidos_bp.pedidos') }}">
-                                <i class="bi bi-cart"></i>
-                                <span class="menu-text">Pedidos</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a  class="nav-link" href="{{ url_for('produtos_bp.produtos') }}">
                                 <i class="bi bi-box-seam"></i>
                                 <span class="menu-text">Produtos</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a  class="nav-link" href="{{ url_for('usuarios_bp.usuarios') }}">
-                                <i class="bi bi-person-badge"></i>
-                                <span class="menu-text">Usuários</span>
+                            <a  class="nav-link" href="{{ url_for('pedidos_bp.pedidos') }}">
+                                <i class="bi bi-cart"></i>
+                                <span class="menu-text">Pedidos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link" href="#">
+                                <i class="bi bi-cash-coin"></i>
+                                <span class="menu-text">Caixa</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link" href="#">
+                                <i class="bi bi-box2"></i>
+                                <span class="menu-text">Estoque</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link" href="#">
+                                <i class="bi bi-wallet"></i>
+                                <span class="menu-text">Vendas</span>
                             </a>
                         </li>
                     </ul>

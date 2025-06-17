@@ -1,3 +1,7 @@
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Doppio+One&display=swap');
+
 /* Cores */
 .bg-primary {
     background-color: #0c4ea3 !important;
@@ -29,7 +33,7 @@
     display: flex;
     align-items: center;
     padding: 0.75rem 1rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .sidebar .nav-link i {
@@ -39,6 +43,16 @@
 
 .sidebar .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.827);
+    border-radius: 10px;
+    transition: 0.4s ease;
+}
+
+.sidebar .nav-link :where(.menu-text) {
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover .menu-text {
+    color: #0c4ea3;
 }
 
 /* Sidebar minimizada */
@@ -57,6 +71,11 @@
 
 .sidebar.sidebar.minimized .menu-text {
     display: none !important;
+}
+
+.menu-text {
+    color: white;
+    font-family: 'Poppins';
 }
 
 /* Responsividade - Mobile */
