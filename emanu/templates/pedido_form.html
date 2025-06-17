@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block title %}{{ "Novo Pedido" if not pedido else "Editar Pedido" }}{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+        <div class="card shadow-sm">
+            <div class="card-header text-center">
+                <h4> {{ "Novo Pedido" if not pedido else "Editar Pedido" }} </h4>
+            </div>
+            <div class="card-body">
+
+                <!-- Formulário -->
+                 {% if pedido %}
+                <form method="POST" action="{{ url_for('pedidos_bp.editar_pedido', id=pedido.id) }}">
+                    {% else %}
+                        <form method="POST" action="{{ url_for('pedidos_bp.novo_pedido') }}">
+                            {% endif %}
+                    
+                    <!-- Cliente -->
+                    <div class="mb-3">
+                        <label for="cliente_id" class="form-label">Cliente</label>
+                        <select name="cliente_id" id="cliente_id" class="form-select" required>
+                            {% for cliente in clientes %}
+                            <option value="{{ cliente.id }}" {{ 'selected' if pedido and 
+                                pedido.cliente_id==cliente.id }}>
+                                {{ cliente.nome }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <!-- Pesquisa de Produtos -->
+                    <div class="mb-3">
+                        <label for="produto_search" class="form-label">Pesquisar Produto</label>
+                        <input type="text" id="produto_search" class="form-control"
+                            placeholder="Digite parte do nome do produto...">
+                    </div>
+
+                    <!-- Lista de Produtos -->
+                    <div class="mb-3">
+                        <button type="button" id="btn-add-produto" class="btn btn-outline-primary btn-sm mb-2">
+                            <i class="bi bi-plus-circle"></i> Adicionar Produto
+                        </button>
+                        <table class="table table-bordered align-middle" id="produtos-table">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Produto</th>
+                                    <th>Quantidade</th>
+                                    <th>Preço Unitário</th>
+                                    <th>Subtotal</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-body">
+                                {# Produtos são adicionados aqui #}
+                                {% if pedido and itens_selecionados %}
+                                {% for produto in produtos %}
+                                {% if produto.id in itens_selecionados %}
+                                <tr>
+                                    <td>
+                                        <input type="hidden" name="produto_id[]" value="{{ produto.id }}">
+                                        {{ produto.nome }}
+                                    </td>
+                                    <td><input type="number" name="quantidade[]"
+                                        value="{{ itens_selecionados[produtos.id] }}" min="1"
+                                        class="form-control quantidade-input" oninput="atualizaSubtotal(this)">
+                                    </td>
+                                    <td>R$ <span class="preco">{{ produto.preco | round(2) }}</span></td>
+                                    <td>R$ <span class="subtotal">0.00</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            onclick="removerLinha(this)">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                                {% endif %}
+                            </tbody>
+                        </table>
+
+                        <!-- Total Geral -->
+                         <div class="d-flex justify-content-end fs-5 fw-bold mt-3">
+                            <span>Total: R$ <span id="total-geral">0.00</span></span>
+                         </div>
+                        </div>
+
+                        <!-- Botões -->
+                         <div class="d-grid gap-2 d-md-flex justify-content-md-between mt-4">
+                            <button type="submit" clas="btn btn-success">
+                                <i class="bi bi-save"></i> {{ "Salvar" if not pedido else "Atualizar" }}
+                            </button>
+                            <a href="{{ url_for('pedidos_bp.pedidos') }}" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Voltar
+                            </a>
+                         </div>
+                    </form>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Seleção de Produtos -->
+ <div class="modal fade" id="produtoModal" tabindex="-1" aria-labelledby="produtoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="produtoModalLabel">Selecionar Produto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="produto-filter" class="form-control mb-3" placeholder="Filtrar produtos...">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Preço</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="produto-list">
+                            {% for produto in produtos %}
+                            <tr>
+                                <td>{{ produto.nome }}</td>
+                                <td>R$ {{ produto.preco | round(2) }} </td>
+                            <td>
+                            <button class="btn btn-success btn-sm btn-selecionar" data-id="{{ produto.id }}"
+                                data-nome="{{ produto.nome }}" data-preco="{{ produto.preco }}">
+                                Selecionar
+                            </button>
+                            </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+ <!-- JavaScript Dinâmico -->
+<script src="{{ url_for('static', filename='js/produtos.js') }}"></script>
+
+{% endblock %}

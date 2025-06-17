@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block title %}{{ "Novo Fornecedor" if not fornecedor else "Editar Fornecedor" }}{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow-sm rounded">
+        <div class="card-header bg-warning text-center fw-bold">
+            CADASTRO DE FORNECEDORES
+        </div>
+        <div class="card-body bg-light">
+            <form method="POST"
+                action="{{ url_for('fornecedores_bp.salvar' if not fornecedor else 'fornecedores_bp.atualizar') }}">
+                {% if fornecedor %}
+                <input type="hidden" name="id" value="{{ fornecedor.id }}">
+                {% endif %}
+
+                <!-- DADOS -->
+                <h5 class="fw-bold">DADOS</h5>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="nome" class="form-label">Nome Fantasia:</label>
+                        <input type="text" class="form-control" name="nome" id="nome"
+                            value="{{ fornecedor.nome if fornecedor else '' }}" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="nome" class="form-label">Razão Social:</label>
+                        <input type="text" class="form-control" name="razao_social" id="razao_social"
+                            value="{{ fornecedor.nome if fornecedor else '' }}" required>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="cpf" class="form-label">CNPJ:</label>
+                    <input type="text" class="form-control" name="cnpj" id="cpf"
+                        value="{{ fornecedor.cnpj if fornecedor else '' }}">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="numero" class="form-label">IE:</label>
+                    <input type="text" class="form-control" name="numero" id="numero"
+                        value="{{ fornecedor.IE if fornecedor else '' }}">
+                </div>
+
+
+                <!-- ENDEREÇO -->
+                 <div>
+                <h5 class="fw-bold">ENDEREÇO</h5>
+                <div class="row mb-3">
+                    <div class="col-md-8">
+                        <label for="logradouro" class="form-label">Logradouro:</label>
+                        <input type="text" class="form-control" name="logradouro" id="logradouro"
+                            value="{{ fornecedor.logradouro if fornecedor else '' }}">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="numero" class="form-label">Número:</label>
+                        <input type="text" class="form-control" name="numero" id="numero"
+                            value="{{ fornecedor.numero if fornecedor else '' }}">
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label for="cep" class="form-label">CEP:</label>
+                            <input type="text" class="form-control" name="cep" id="cep"
+                                value="{{ fornecedor.cep if fornecedor else '' }}">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cidade" class="form-label">Cidade:</label>
+                            <input type="text" class="form-control" name="cidade" id="cidade"
+                                value="{{ fornecedor.cidade if fornecedor else '' }}">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="uf" class="form-label">UF:</label>
+                            <input type="text" class="form-control" name="UF" id="UF"
+                                value="{{ fornecedor.UF if fornecedor else '' }}">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="complemento" class="form-label">Complemento:</label>
+                            <input type="text" class="form-control" name="complemento" id="complemento"
+                                value="{{ fornecedor.complemento if fornecedor else '' }}">
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- CONTATO -->
+                    <h5 class="fw-bold">CONTATO</h5>
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <label for="telefone" class="form-label">Telefone:</label>
+                            <input type="text" class="form-control" name="telefone" id="telefone"
+                                value="{{ fornecedor.telefone if fornecedor else '' }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="celular" class="form-label">Celular:</label>
+                            <input type="text" class="form-control" name="celular" id="celular"
+                                value="{{ fornecedor.celular if fornecedor else '' }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="email" class="form-label">E-mail:</label>
+                            <input type="email" class="form-control" name="email" id="email"
+                                value="{{ forneceedor.email if fornecedor else '' }}">
+                        </div>
+                    </div>
+
+                    <!-- BOTÕES -->
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-success px-4">EFETIVAR CADASTRO</button>
+                        <button type="reset" class="btn btn-danger px-4">LIMPAR DADOS</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Clientes - ERP{% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+  <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
+    <h4 class="fw-bold">CLIENTES</h4>
+    <a href="{{ url_for('clientes_bp.novo') }}" class="btn btn-secondary">
+      <i class="bi bi-person-plus"></i> Novo Cliente
+    </a>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-body bg-light">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle">
+          <thead class="table-primary text-center">
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Telefone</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for cliente in clientes %}
+            <tr>
+              <td class="text-center">{{ cliente.id }}</td>
+              <td>{{ cliente.nome }}</td>
+              <td>{{ cliente.email }}</td>
+              <td>{{ cliente.telefone }}</td>
+              <td class="text-center">
+                {% if not cliente.pedidos %}
+                <a href="{{ url_for('clientes_bp.excluir', id=cliente.id) }}"
+                   class="btn btn-sm btn-danger me-1"
+                   onclick="return confirm('Tem certeza que deseja excluir?')">
+                   <i class="bi bi-trash"></i>
+                </a>
+                {% endif %}
+                <a href="{{ url_for('clientes_bp.editar', id=cliente.id) }}"
+                   class="btn btn-sm btn-primary">
+                   <i class="bi bi-pencil"></i>
+                </a>
+              </td>
+            </tr>
+            {% else %}
+            <tr>
+              <td colspan="5" class="text-center text-muted">Nenhum cliente cadastrado.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

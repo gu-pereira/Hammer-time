@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/lux/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <title>Login</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>BEM VINDO!</h1>
+    <div class="login-box">
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+        <form method="POST">
+            <h2>FAÇA LOGIN</h2>
+            <input type="text" placeholder="Usuário" name="username" id="username" class="form-control" required/>
+            <input type="password" placeholder="Senha" name="password" id="password" class="form-control" required/>
+            <button type="submit" class="btn">Entrar</button>
+            <a href="esqueci-senha.html" class="forgot"><u>Esqueceu a senha?</u></a>
+        </form>
+    </div>
+  </div>
+</body>
+
+</html>
