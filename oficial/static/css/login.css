@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0f52a4;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  color: white;
+  font-family: Arial;
+}
+
+h1 {
+  font-size: 2em;
+  margin-top: -100px;
+  margin-bottom: 30px;
+  font-family: 'Inter';
+  font-weight: 600;
+}
+
+.login-box {
+  background-color: #4d66ba;
+  padding: 50px;
+  border-radius: 30px;
+  width: 420px;
+  margin: 0 auto;
+}
+
+.login-box h2 {
+  color: #f5a700;
+  margin-bottom: 25px;
+  font-family: 'Inter';
+  font-weight: 700;
+}
+
+.login-box input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 20px;
+  font-size: 1em;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: #f5a700;
+  color: black;
+  font-size: 1em;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button a {
+  color: black;
+  text-decoration: none;
+}
+
+.login-box button:hover {
+  background-color: #c98200;
+  box-shadow: 0 0 10px #f5a700;
+}
+
+.forgot {
+  display: block;
+  margin-top: 15px;
+  color: #cfd8f0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot:hover {
+  color: #ffffff;
+}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}{{ "Novo Cliente" if not cliente else "Editar Cliente" }}{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-header text-center">
+                <h4>{{ "Novo Cliente" if not cliente else "Editar Cliente" }}</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST"
+                    action="{{ url_for('clientes_bp.salvar' if not cliente else 'clientes_bp.atualizar') }}">
+                    {% if cliente %}
+                    <input type="hidden" name="id" value="{{ cliente.id }}">
+                    {% endif %}
+
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" name="nome" id="nome" class="form-control"
+                            value="{{ cliente.nome if cliente else '' }}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" id="email" class="form-control"
+                            value="{{ cliente.email if cliente else '' }}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="text" name="telefone" id="telefone" class="form-control"
+                            value="{{ cliente.telefone if cliente else '' }}">
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-between">
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-save"></i> {{ "Salvar" if not cliente else "Atualizar" }}
+                        </button>
+                        <a href="{{ url_for('clientes_bp.clientes') }}" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Voltar
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

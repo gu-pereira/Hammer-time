@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/lux/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <title>{% block title %}ERP{% endblock %}</title>
+</head>
+
+<body>
+    
+    <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">ERP Sistema</a>
+            <button class="btn ms-auto d-lg-none" id="sidebarToggle">☰ Menu</button>
+            <button class="btn d-none d-lg-inline-block" id="sidebarMinimize">
+                <i class="bi bi-chevron-double-left text-white"></i>
+            </button>
+            <div class="ms-auto d-flex align-items-center">
+                <span class="text-white me-3">Bem-vindo, {{ session.username }}</span>
+                <a href="{{ url_for('logout') }}" class="btn" title="Sair">
+                    <i class="bi bi-box-arrow-right fs-4 text-white"></i>
+                </a>
+            </div>
+        </div>
+     </nav>
+
+     <div class="container-fluid">
+        <div class="row">
+
+            <!-- Sidebar -->
+             <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse show">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('index') }}">
+                                <i class="bi bi-house-door"></i>
+                                <span class="menu-text">Início</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link" href="{{ url_for('clientes_bp.clientes') }}">
+                                <i class="bi bi-people"></i>
+                                <span class="menu-text">Clientes</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link" href="{{ url_for('pedidos_bp.pedidos') }}">
+                                <i class="bi bi-cart"></i>
+                                <span class="menu-text">Pedidos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link" href="{{ url_for('produtos_bp.produtos') }}">
+                                <i class="bi bi-box-seam"></i>
+                                <span class="menu-text">Produtos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link" href="{{ url_for('usuarios_bp.usuarios') }}">
+                                <i class="bi bi-person-badge"></i>
+                                <span class="menu-text">Usuários</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+             </nav>
+
+             <!-- Conteúdo Principal -->
+              <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                {% block content %}{% endblock %}
+              </main>
+
+        </div>
+     </div>
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
+     <!-- Javascript do Menu Lateral -->
+      <script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
+
+    </body>
+</html>
